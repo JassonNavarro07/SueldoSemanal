@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SueldoSemanal.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Entry x:Name="EntryHorasTra"
+                   Placeholder="Digite las horas trabajadas"
+                   Keyboard="Numeric"/>
+            <Entry x:Name="EntryPagoHora"
+                 Placeholder="Digite el pago por hora"
+                  Keyboard="Numeric"/>
+            <Label x:Name="labelresultado"
+                   FontSize="20"
+                   HorizontalOptions="Center"/>
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Calcular" 
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Fill" />
+
+            <ListView x:Name="listView" FlexLayout.Grow="1"  HasUnevenRows="True" ItemTapped="listView_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <VerticalStackLayout Padding="5">
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="1"  Text="{Binding Sueldo}" FontAttributes="Bold"/>
+                                </Grid>
+
+                            </VerticalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
